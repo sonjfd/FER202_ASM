@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "testuser",
+      "password": "123456",
+      "fullname": "Nguyễn Văn A",
+      "gender": "male",
+      "email": "testuser@example.com",
+      "phone": "0123456789",
+      "img": "https://i.pravatar.cc/150?img=1"
+    },
+    {
+      "id": "2",
+      "username": "janedoe",
+      "password": "abcdef",
+      "fullname": "Jane Doe",
+      "gender": "female",
+      "email": "jane@example.com",
+      "phone": "0987654321",
+      "img": "https://i.pravatar.cc/150?img=2"
+    }
+  ]
+}
