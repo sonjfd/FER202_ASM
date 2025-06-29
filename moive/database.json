@@ -19,6 +19,27 @@
       "email": "jane@example.com",
       "phone": "0987654321",
       "img": "https://i.pravatar.cc/150?img=2"
+    },
+    {
+      "id": "3",
+      "username": "sondiec121",
+      "password": "condoc123",
+      "fullname": "Đinh Ngọc Sơn",
+      "gender": "Male",
+      "email": "sonjfd@gmail.com",
+      "phone": "0963099502",
+      "img": "/images/macdinh.png",
+      "role":0
+    },
+    {
+      "id": "4",
+      "username": "sondiec1212",
+      "password": "123",
+      "fullname": "abc",
+      "gender": "Male",
+      "email": "a1231@12312",
+      "phone": "123123123",
+      "img": "/images/macdinh.png"
     }
   ]
 }

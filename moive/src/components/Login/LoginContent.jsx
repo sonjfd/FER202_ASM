@@ -12,23 +12,27 @@ const LoginContent = () => {
 
     const navigate = useNavigate();
 
-
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.get('http://localhost:9999/users', {
-            });
+            const res = await axios.get('http://localhost:9999/users');
 
             const user = res.data.find(
                 (u) => u.username === username && u.password === password
             );
 
-            if (user) {
-                localStorage.setItem('user', JSON.stringify(user));
-                navigate('/');
-            } else {
+            if (!user) {
                 setLoginError('Tên đăng nhập hoặc mật khẩu không đúng!');
+                return;
             }
+
+            if (user.status === 0) {
+                setLoginError('Tài khoản của bạn đã bị khoá!');
+                return;
+            }
+
+            localStorage.setItem('user', JSON.stringify(user));
+            navigate('/');
         } catch (err) {
             console.error(err);
             setLoginError('Đã xảy ra lỗi khi đăng nhập.');
@@ -41,7 +45,9 @@ const LoginContent = () => {
                 <h2>Đăng nhập</h2>
                 {loginError && <div className="login-error">{loginError}</div>}
 
+                <label htmlFor="username">Tên đăng nhập:</label>
                 <input
+                    id="username"
                     type="text"
                     placeholder="Tên đăng nhập"
                     value={username}
@@ -52,8 +58,10 @@ const LoginContent = () => {
                     required
                 />
 
+                <label htmlFor="password">Mật khẩu:</label>
                 <div className="input-group">
                     <input
+                        id="password"
                         type={showPassword ? 'text' : 'password'}
                         className="password-input"
                         placeholder="Mật khẩu"
@@ -74,12 +82,9 @@ const LoginContent = () => {
 
                 <button type="submit">Đăng nhập</button>
                 <div className="login-bottom-links">
-                     <Link to="/" className="back-home">Trở về trang chủ</Link>
-                    <span>Chưa có tài khoản? <Link to="/register">Đăng kí</Link></span>
+                    <Link to="/" className="back-home">Trở về trang chủ</Link>
+                    <span>Chưa có tài khoản? <Link to="/register">Đăng ký</Link></span>
                 </div>
-
-
-
             </form>
         </div>
     );
