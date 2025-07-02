@@ -1,0 +1,96 @@
+.movie-banner-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-slide {
+  position: relative;
+  width: 100%;
+  height: 550px;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.5);
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 60px;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 35%, rgba(0, 0, 0, 0) 100%);
+  box-sizing: border-box;
+}
+
+.banner-overlay h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.banner-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.info-line {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  opacity: 0.9;
+}
+
+.desc {
+  font-size: 1rem;
+  max-width: 800px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.banner-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.banner-buttons .play-btn,
+.banner-buttons .fav-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.banner-buttons .play-btn {
+  background-color: #ff3d3d;
+  color: white;
+}
+
+.banner-buttons .play-btn:hover {
+  background-color: #e63232;
+}
+
+.banner-buttons .fav-btn {
+  background-color: #ffffff22;
+  color: white;
+  border: 1px solid #fff;
+}
+
+.banner-buttons .fav-btn:hover {
+  background-color: #ffffff44;
+}

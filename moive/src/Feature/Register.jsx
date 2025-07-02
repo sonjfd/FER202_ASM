@@ -1,37 +1,33 @@
-import { useEffect, useState } from 'react'
-import './RegisterContent.css'
-import { Link, useNavigate } from 'react-router-dom'
-import { BsEye, BsEyeSlash } from 'react-icons/bs'
-import axios from 'axios'
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import './Register.css';
+import axios from 'axios';
 
-
-
-
-const RegisterContent = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+const Register = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [fullname, setFullname] = useState('')
-    const [gender, setGender] = useState('Male')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
+    const [fullname, setFullname] = useState('');
+    const [gender, setGender] = useState('Male');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [users, setUsers] = useState([]);
 
     const navigate = useNavigate();
+
     useEffect(() => {
         const fetchUsers = async () => {
             try {
                 const res = await axios.get('http://localhost:9999/users');
                 setUsers(res.data);
-                console.log(res.data);
             } catch (err) {
                 console.error(err);
             }
         };
-
         fetchUsers();
     }, []);
 
@@ -43,34 +39,32 @@ const RegisterContent = () => {
             setError(validationMessage);
             return;
         }
+
         const maxId = users.length > 0 ? Math.max(...users.map(u => parseInt(u.id))) : 0;
 
         const newUser = {
             id: (maxId + 1).toString(),
-            username: username,
-            password: password,
-            fullname: fullname,
-            gender: gender,
-            email: email,
-            phone: phone,
+            username,
+            password,
+            fullname,
+            gender,
+            email,
+            phone,
             img: '/images/macdinh.png',
             role: 1,
             status: 1
-        }
+        };
 
         try {
-            await axios.post('http://localhost:9999/users', newUser)
-            alert('Đăng kí thành công')
-            navigate('/')
-
+            await axios.post('http://localhost:9999/users', newUser);
+            alert('Đăng kí thành công');
+            navigate('/');
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
-    }
-
+    };
 
     const validateForm = () => {
-
         if (users.find(u => u.username === username)) {
             return 'Tên đăng nhập này đã tồn tại';
         }
@@ -90,6 +84,7 @@ const RegisterContent = () => {
         }
         return '';
     };
+
     return (
         <div className="wrapper">
             <form className="register-box" onSubmit={handleRegister}>
@@ -114,10 +109,7 @@ const RegisterContent = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    <span
-                        className="input-icon"
-                        onClick={() => setShowPassword(!showPassword)}
-                    >
+                    <span className="input-icon" onClick={() => setShowPassword(!showPassword)}>
                         {showPassword ? <BsEyeSlash /> : <BsEye />}
                     </span>
                 </div>
@@ -131,10 +123,7 @@ const RegisterContent = () => {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                     />
-                    <span
-                        className="input-icon"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    >
+                    <span className="input-icon" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
                         {showConfirmPassword ? <BsEyeSlash /> : <BsEye />}
                     </span>
                 </div>
@@ -178,7 +167,6 @@ const RegisterContent = () => {
                         />
                         Nam
                     </label>
-
                     <label style={{ marginLeft: '20px' }}>
                         <input
                             type="radio"
@@ -199,7 +187,7 @@ const RegisterContent = () => {
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default RegisterContent
+export default Register;

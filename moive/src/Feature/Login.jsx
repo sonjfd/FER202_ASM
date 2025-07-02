@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import './LoginContent.css';
+import '../Feature/Login.css';
 import axios from 'axios';
 
-const LoginContent = () => {
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState('');
@@ -80,7 +80,12 @@ const LoginContent = () => {
                     </span>
                 </div>
 
+                <div className="forgot-password-link">
+                    <Link to="/forgot-password">Quên mật khẩu?</Link>
+                </div>
+
                 <button type="submit">Đăng nhập</button>
+
                 <div className="login-bottom-links">
                     <Link to="/" className="back-home">Trở về trang chủ</Link>
                     <span>Chưa có tài khoản? <Link to="/register">Đăng ký</Link></span>
@@ -90,4 +95,4 @@ const LoginContent = () => {
     );
 };
 
-export default LoginContent;
+export default Login;

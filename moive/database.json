@@ -8,7 +8,8 @@
       "gender": "male",
       "email": "testuser@example.com",
       "phone": "0123456789",
-      "img": "https://i.pravatar.cc/150?img=1"
+      "img": "",
+      "role": 1
     },
     {
       "id": "2",
@@ -18,28 +19,34 @@
       "gender": "female",
       "email": "jane@example.com",
       "phone": "0987654321",
-      "img": "https://i.pravatar.cc/150?img=2"
+      "role": 1
     },
     {
       "id": "3",
-      "username": "sondiec121",
+      "username": "admin",
+      "password": "admin123",
+      "fullname": "Quản trị viên",
+      "gender": "male",
+      "email": "admin@phim.com",
+      "phone": "0900000000",
+      "img": "/images/macdinh.png",
+      "role": 0
+    },
+    
+    {
+      "id": "5",
+      "username": "son1234",
       "password": "condoc123",
-      "fullname": "Đinh Ngọc Sơn",
-      "gender": "Male",
-      "email": "sonjfd@gmail.com",
+      "fullname": "Đỗ Viết Hải",
+      "gender": "Female",
+      "email": "hai12@gmail.com",
       "phone": "0963099502",
       "img": "/images/macdinh.png",
-      "role":0
-    },
-    {
-      "id": "4",
-      "username": "sondiec1212",
-      "password": "123",
-      "fullname": "abc",
-      "gender": "Male",
-      "email": "a1231@12312",
-      "phone": "123123123",
-      "img": "/images/macdinh.png"
+      "role": 1,
+      "status": 1
     }
-  ]
+  ],
+  "comments": [],
+  "favorites": [],
+  "watchHistory": []
 }

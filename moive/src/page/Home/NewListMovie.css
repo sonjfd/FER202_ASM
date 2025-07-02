@@ -1,0 +1,22 @@
+.movie-carousel-container {
+  padding: 2rem 2rem 1rem;
+  color: #fff;
+}
+
+.section-header {
+  margin-bottom: 30px;
+}
+
+.section-header .divider {
+  border: none;
+  border-top: 2px solid #777;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
